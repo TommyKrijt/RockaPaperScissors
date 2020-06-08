@@ -7,6 +7,7 @@
 </head>
 <body>
   <script>
+    //generates the computer play
     function computerPlay(){
       let plays = [
         "rock",
@@ -16,7 +17,34 @@
       let randomComputerPlay = plays[Math.floor(Math.random()*plays.length)]
       return randomComputerPlay
     }
-    console.log(computerPlay())
+    
+    //function that gives possible outcomes in a round of play
+    function playRound(playerSelection, computerSelection){
+      if((playerSelection == "rock") && (computerSelection == "scissors")){
+        victorySpeech = "You Win! Rock beats Scissors."
+      } else if ((playerSelection == "rock") && (computerSelection == "paper")){
+        victorySpeech = "You Lose! Paper beats Rock."
+      } else if ((playerSelection == "rock") && (computerSelection == "rock")){ 
+        victorySpeech = "It's a Tie."
+      } else if ((playerSelection == "paper") && (computerSelection == "rock")){
+        victorySpeech = "You Win! Paper beats Rock."
+      } else if ((playerSelection == "paper") && (computerSelection == "scissors")){
+        victorySpeech = "You Lose! Scissors beats Paper"
+      } else if ((playerSelection == "paper") && (computerSelection == "paper")){
+        victorySpeech = "It's a Tie."
+      } else if ((playerSelection == "scissors") && (computerSelection == "paper")){
+        victorySpeech = "You Win! Scissors beats Paper."
+      } else if ((playerSelection == "scissors") && (computerSelection == "rock")){
+        victorySpeech = "You Lose! Rock beats Scissors"
+      } else {
+        victorySpeech = "It's a Tie"
+      }
+      return victorySpeech
+      } 
+    const playerSelection = "scissors"
+    const computerSelection = computerPlay()
+    
+    console.log(playRound(playerSelection, computerSelection))
   </script>
 </body>
 </html>
