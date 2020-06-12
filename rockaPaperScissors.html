@@ -69,10 +69,27 @@
                     }
                 }
             }
+    // score variables for score tracking
+    let playerScore = 0;
+    let computerScore = 0;
 
     //function that plays a 5 round game and shows a winner
     function game(){
-      
+      let round = 0;
+      while (round < 5){
+        let playerSelection = playerPlay()
+        let computerSelection = computerPlay()
+        playRound(playerSelection, computerSelection);
+        console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}.`);
+        round++
+      }
+      if (playerScore > computerScore){
+        console.log(`You win!`);
+      } else if(playerScore < computerScore){
+        console.log(`You lose!`)
+      } else{
+        console.log(`It's a draw!`)
+      }
     }
   </script>
 </body>
