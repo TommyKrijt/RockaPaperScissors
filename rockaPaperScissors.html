@@ -18,7 +18,7 @@
       return randomComputerPlay
     }
     
-    //function that gives possible outcomes in a round of play
+    //function that gives possible outcomes in one round of play
     function playRound(playerSelection, computerSelection){
       if((playerSelection == "rock") && (computerSelection == "scissors")){
         victorySpeech = "You Win! Rock beats Scissors."
@@ -40,13 +40,40 @@
         victorySpeech = "It's a Tie"
       }
       return victorySpeech
-      } 
+      }
     //original input! converted to lower case on function variable
     const lowerCasePlayerSelection = "scisSors";
     const playerSelection = lowerCasePlayerSelection.toLowerCase();
     const computerSelection = computerPlay();
-    
     console.log(playRound(playerSelection, computerSelection))
+    
+    //function that promptes/simulates playerPlay
+    function playerPlay() 
+            {
+                let choices = ['rock', 'paper', 'scissors']
+                let playerInput = prompt('Rock, Paper, or Scissors?');
+                if (choices.includes(playerInput.toLowerCase()))
+                {
+                    return playerInput;
+                }
+                else 
+                {
+                    playerInput = prompt('You MUST enter Rock, Paper, or Scissors?');
+
+                    if (choices.includes(playerInput.toLowerCase()))
+                {
+                    return playerInput;
+                }
+                    else {
+                        alert(`End of game`);
+                    }
+                }
+            }
+
+    //function that plays a 5 round game and shows a winner
+    function game(){
+      
+    }
   </script>
 </body>
 </html>
