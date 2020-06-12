@@ -19,28 +19,44 @@
     }
     
     //function that gives possible outcomes in one round of play
-    function playRound(playerSelection, computerSelection){
-      if((playerSelection == "rock") && (computerSelection == "scissors")){
-        victorySpeech = "You Win! Rock beats Scissors."
-      } else if ((playerSelection == "rock") && (computerSelection == "paper")){
-        victorySpeech = "You Lose! Paper beats Rock."
-      } else if ((playerSelection == "rock") && (computerSelection == "rock")){ 
-        victorySpeech = "It's a Tie."
-      } else if ((playerSelection == "paper") && (computerSelection == "rock")){
-        victorySpeech = "You Win! Paper beats Rock."
-      } else if ((playerSelection == "paper") && (computerSelection == "scissors")){
-        victorySpeech = "You Lose! Scissors beats Paper"
-      } else if ((playerSelection == "paper") && (computerSelection == "paper")){
-        victorySpeech = "It's a Tie."
-      } else if ((playerSelection == "scissors") && (computerSelection == "paper")){
-        victorySpeech = "You Win! Scissors beats Paper."
-      } else if ((playerSelection == "scissors") && (computerSelection == "rock")){
-        victorySpeech = "You Lose! Rock beats Scissors"
+    function playRound(playerSelection, computerSelection) {
+
+      let player = playerSelection.toLowerCase();
+      let computer = computerSelection.toLowerCase();
+ 
+      if(player === 'rock') {
+        if(computer === 'rock') {
+        console.log(`It's a tie ${player} and ${computer}`);
+        } else if(computer === 'paper') {
+          console.log(`You loose ${computer} beats ${player}`);
+          computerScore++;
+        } else {
+          console.log(`You win ${player} beats ${computer}`);
+          playerScore++;
+      }
+      } else if(player === 'paper') {
+          if(computer === 'paper') {
+            console.log(`It's a tie ${player} and ${computer}`);
+        } else if(computer === 'scissors') {
+          console.log(`You loose ${computer} beats ${player}`);
+          computerScore++;
+        } else {
+          console.log(`You win ${player} beats ${computer}`);
+          playerScore++;
+      }
       } else {
-        victorySpeech = "It's a Tie"
+        if(computer === 'scissors') {
+          console.log(`It's a tie ${player} and ${computer}`);
+        } else if(computer === 'rock') {
+          console.log(`You loose ${computer} beats ${player}`);
+          computerScore++;
+        } else {
+          console.log(`You win ${player} beats ${computer}`);
+          playerScore++;
+        }
       }
-      return victorySpeech
-      }
+    }
+
     //original input! converted to lower case on function variable
     const lowerCasePlayerSelection = "scisSors";
     const playerSelection = lowerCasePlayerSelection.toLowerCase();
